@@ -187,12 +187,6 @@ bindsym $modCtrl+8 exec xrandr --output eDP-1 --brightness 0.8
 bindsym $modCtrl+9 exec xrandr --output eDP-1 --brightness 0.9
 bindsym $modCtrl+0 exec xrandr --output eDP-1 --brightness 1.0
 
-#firefox 
-bindsym $modCtrl+f exec firefox &
-
-#chromium-browser
-bindsym $modCtrl+g exec chromium-browser &
-
 #volume
 bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
 bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
@@ -209,45 +203,3 @@ exec_always xset -dpms
 
 #wallpaper
 exec_always feh --bg-scale /home/banebo/Pictures/13789-1366x768.jpg
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -84,7 +84,7 @@ bindsym $mod+a focus parent
 set $work1 "1 "
 set $work2 "2 "
 set $work3 "3 "
-set $work4 "4"
+set $work4 "4"
 set $work5 "5"
 set $work6 "6"
 set $work7 "7"
@@ -119,6 +119,7 @@ bindsym $mod+Shift+0 move container to workspace $work10
 assign [class="Xfce4-terminal"] $work1
 assign [class="Firefox"] $work2
 assign [class="Chromium-browser"] $work2 
+assign [class="qBittorrent"] $work4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -172,7 +173,7 @@ bar {
 #additional commands
 
 #locking
-bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock.png # && pm-suspend 
+bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png # && pm-suspend 
  
 
 #brightness
@@ -202,4 +203,4 @@ exec_always xset s off &
 exec_always xset -dpms 
 
 #wallpaper
-exec_always feh --bg-scale /home/banebo/Pictures/13789-1366x768.jpg
+exec_always feh --bg-scale /home/banebo/Pictures/wallpaper.jpg

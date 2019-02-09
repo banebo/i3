@@ -119,7 +119,8 @@ bindsym $mod+Shift+0 move container to workspace $work10
 # xprop to get class, second string
 assign [class="Xfce4-terminal"] $work1
 assign [class="Firefox"] $work2
-assign [class="Chromium-browser"] $work2 
+assign [class="Chromium-browser"] $work2
+assign [class="Chromium"] $work2
 assign [class="qBittorrent"] $work4
 assign [class="jetbrains-idea"] $work3
 assign [class="Eclipse"] $work3
@@ -169,16 +170,14 @@ bar {
 		inactive_workspace #000000 	      #000000           #999999
 		urgent_workspace   #b51a17	      #000000		#b51a17
 	}
-	
+
         status_command i3status
 }
-
 
 #additional commands
 
 #locking
-bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png # && pm-suspend 
- 
+bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png # && pm-suspend
 
 #brightness
 bindsym $modCtrl+1 exec xrandr --output eDP-1 --brightness 0.1
@@ -196,15 +195,18 @@ bindsym $modCtrl+0 exec xrandr --output eDP-1 --brightness 1.0
 bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
 bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
 
-#borders 
-hide_edge_borders both 
+#borders
+hide_edge_borders both
 
 # class          border 	 backgr. 	text    	indicator child_border
 #client.focused	 #000000 	#006600		#ffffff 	#ff0000
 #client.unfocused #000000 #000000 #808080 #999999
 
 exec_always xset s off &
-exec_always xset -dpms 
+exec_always xset -dpms
 
 #wallpaper
 exec_always feh --bg-scale /home/banebo/Pictures/wallpaper.jpg
+
+#touchpad
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1

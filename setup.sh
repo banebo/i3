@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "[*] Checking i3 installation..."
-type i3 i3status > /dev/null
+type i3 > /dev/null
 if [[ $? -ne 0 ]]; then
     read -p "[-] i3 is missing, would you like to install it [y/n]? " choice
     if [[ $choice = "y" ]]; then
@@ -11,6 +11,8 @@ if [[ $? -ne 0 ]]; then
         else
             sudo pacman -S i3-wm
             sudo pacman -S i3status
+            sudo pacman -S dmenu-manjaro
+            sudo pacman -S i3lock
         echo "[+] Done"
         fi
     else
@@ -23,9 +25,17 @@ else
 fi
 
 if [[ ! -d $HOME/.config/i3 ]]; then
-    echo "[*] Running i3-config-wizard..."
-    i3-config-wizard
-    echo "  [+] Done"
+    read -p "[+] Run i3-config-wizard [y/n]: " choice
+    if [[ $choice == 'y' ]]; then
+        echo "[*] Running i3-config-wizard..."
+        i3-config-wizard
+        echo "  [+] Done"
+    fi
+fi
+
+if [[ ! -d $HOME/.config/i3 ]]; then
+    echo "[-] Exiting, no .config file..."
+    exit 1
 fi
 
 echo

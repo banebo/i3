@@ -165,10 +165,10 @@ bar {
 	colors {
 		background #00000
 	    	separator #757575
-		#                  border             background         text
-		focused_workspace  #00b300            #00000            #00b300
+		#                  border         background        text
+		focused_workspace  #00b300        #00000            #00b300
 		inactive_workspace #000000 	      #000000           #999999
-		urgent_workspace   #b51a17	      #000000		#b51a17
+		urgent_workspace   #b51a17	      #000000		    #b51a17
 	}
 
         status_command i3status
@@ -176,20 +176,17 @@ bar {
 
 #additional commands
 
-#locking
-bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png # && pm-suspend
-
 #brightness
-bindsym $modCtrl+1 exec xrandr --output eDP-1 --brightness 0.1
-bindsym $modCtrl+2 exec xrandr --output eDP-1 --brightness 0.2
-bindsym $modCtrl+3 exec xrandr --output eDP-1 --brightness 0.3
-bindsym $modCtrl+4 exec xrandr --output eDP-1 --brightness 0.4
-bindsym $modCtrl+5 exec xrandr --output eDP-1 --brightness 0.5
-bindsym $modCtrl+6 exec xrandr --output eDP-1 --brightness 0.6
-bindsym $modCtrl+7 exec xrandr --output eDP-1 --brightness 0.7
-bindsym $modCtrl+8 exec xrandr --output eDP-1 --brightness 0.8
-bindsym $modCtrl+9 exec xrandr --output eDP-1 --brightness 0.9
-bindsym $modCtrl+0 exec xrandr --output eDP-1 --brightness 1.0
+bindsym $modCtrl+1 exec xrandr --output eDP1 --brightness 0.1
+bindsym $modCtrl+2 exec xrandr --output eDP1 --brightness 0.2
+bindsym $modCtrl+3 exec xrandr --output eDP1 --brightness 0.3
+bindsym $modCtrl+4 exec xrandr --output eDP1 --brightness 0.4
+bindsym $modCtrl+5 exec xrandr --output eDP1 --brightness 0.5
+bindsym $modCtrl+6 exec xrandr --output eDP1 --brightness 0.6
+bindsym $modCtrl+7 exec xrandr --output eDP1 --brightness 0.7
+bindsym $modCtrl+8 exec xrandr --output eDP1 --brightness 0.8
+bindsym $modCtrl+9 exec xrandr --output eDP1 --brightness 0.9
+bindsym $modCtrl+0 exec xrandr --output eDP1 --brightness 1.0
 
 #volume
 bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
@@ -210,3 +207,6 @@ exec_always feh --bg-scale /home/banebo/Pictures/wallpaper.jpg
 
 #touchpad
 exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+
+#suspend and lock
+bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png -c 000000 && systemctl suspend -i

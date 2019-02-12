@@ -210,3 +210,6 @@ exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabl
 
 #suspend and lock
 bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png -c 000000 && systemctl suspend -i
+
+# deffault window layout
+workspace_layout tabbed

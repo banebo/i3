@@ -218,7 +218,7 @@ workspace_layout tabbed
 ## dual monitor setup
 set $monitor1 "eDP1"
 set $monitor2 "HDMI1"
-exec_always xrandr | grep "HDMI1 connected" && xrandr --output $monitor2 --auto --right-of $monitor1
+exec_always xrandr | grep "HDMI1 connected" && xrandr --output $monitor2 --auto --left-of $monitor1
     # monitor1
 workspace $work1 output $monitor1
 workspace $work2 output $monitor1

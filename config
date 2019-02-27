@@ -204,13 +204,13 @@ exec_always xset s off &
 exec_always xset -dpms
 
 #wallpaper
-exec_always feh --bg-scale /home/banebo/Pictures/wallpaper.jpg
+exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 
 #touchpad
 exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 
 #suspend and lock
-bindsym $modCtrl+i exec i3lock -ef -i Pictures/lock_screen.png -c 000000 && systemctl suspend -i
+bindsym $modCtrl+i exec i3lock -ef -i $HOME/Pictures/lock_screen.png -c 000000 && systemctl suspend -i
 
 # deffault window layout
 workspace_layout tabbed

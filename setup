@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+if [[ ! -d $HOME/.config ]];then
+    mkdir $HOME/.config
+fi
+
+if [[ ! -d $HOME/.config/i3 ]]; then
+    mkdir $HOME/.config/i3
+fi
+
+if [[ ! -d $HOME/.fonts ]]; then
+    mkdir $HOME/.fonts
+fi
+
+echo
+echo "[*] Setting up fonts..."
+cp fontawesome-webfont.ttf $HOME/.fonts
+echo "  [+] Done"
+
+echo
+echo "[*] Moving config to $HOME/.config/i3/config..."
+cp config $HOME/.config/i3/config
+echo "  [+] Done"
+
+echo
+echo "[*] Moving i3status.conf to /etc/i3status.conf..."
+sudo cp i3status.conf /etc/
+echo "  [+] Done"
+
+exit 0

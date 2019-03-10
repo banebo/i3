@@ -203,6 +203,7 @@ workspace $work10 output $monitor2
 # easy access
 bindsym $mod+v exec $terminal -e vim
 bindsym $modCtrl+Shift+Delete exec $terminal -e "htop -t -s=PERCENT_CPU -d=10 -t"
+bindsym $modCtrl+Shift+c exec chromium
 
 # screen shot
 bindsym $modCtrl+Shift+Print exec --no-startup-id maim $HOME/Pictures/ss"$(date '+%d-%m-%Y_%H-%M-%S').png"

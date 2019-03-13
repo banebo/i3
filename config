@@ -156,8 +156,8 @@ bindsym $modCtrl+9 exec xrandr --output eDP1 --brightness 0.9
 bindsym $modCtrl+0 exec xrandr --output eDP1 --brightness 1.0
 
 # volume
-bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
-bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
+bindsym $modCtrl+Right exec amixer -D default sset Master 5%+
+bindsym $modCtrl+Left exec amixer -D default sset Master 5%-
 
 # borders
 hide_edge_borders both

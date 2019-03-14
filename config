@@ -7,7 +7,7 @@
 
 set $mod Mod1
 set $modCtrl Control
-set $terminal i3-sensible-terminal
+set $terminal xterm
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -184,9 +184,9 @@ bindsym $modCtrl+Shift+s exec "i3lock -ef -i $HOME/Pictures/lock_screen.png -c 0
 workspace_layout tabbed
 
 # dual monitor setup
-set $monitor1 "eDP1"
-set $monitor2 "HDMI1"
-exec_always xrandr | grep "HDMI1 connected" && xrandr --output $monitor2 --auto --left-of $monitor1
+set $monitor1 "eDP-1"
+set $monitor2 "HDMI-1"
+exec_always xrandr | grep "$monitor2 connected" && xrandr --output $monitor2 --auto --left-of $monitor1
     # monitor1
 workspace $work1 output $monitor1
 workspace $work2 output $monitor1

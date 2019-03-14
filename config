@@ -108,16 +108,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -133,7 +127,7 @@ bar {
 		background #00000
 	    separator #757575
 		#                  border         background        text
-		focused_workspace  #00b300        #00000            #00b300
+		focused_workspace  #00b300        #000000           #00b300
 		inactive_workspace #000000 	      #000000           #999999
 		urgent_workspace   #b51a17	      #000000		    #b51a17
 	}
@@ -144,23 +138,26 @@ bar {
 # ADDITIONAL COMMAND
 
 #brightness
-bindsym $modCtrl+1 exec xrandr --output eDP1 --brightness 0.1
-bindsym $modCtrl+2 exec xrandr --output eDP1 --brightness 0.2
-bindsym $modCtrl+3 exec xrandr --output eDP1 --brightness 0.3
-bindsym $modCtrl+4 exec xrandr --output eDP1 --brightness 0.4
-bindsym $modCtrl+5 exec xrandr --output eDP1 --brightness 0.5
-bindsym $modCtrl+6 exec xrandr --output eDP1 --brightness 0.6
-bindsym $modCtrl+7 exec xrandr --output eDP1 --brightness 0.7
-bindsym $modCtrl+8 exec xrandr --output eDP1 --brightness 0.8
-bindsym $modCtrl+9 exec xrandr --output eDP1 --brightness 0.9
-bindsym $modCtrl+0 exec xrandr --output eDP1 --brightness 1.0
+bindsym $modCtrl+1 exec xrandr --output eDP-1 --brightness 0.1
+bindsym $modCtrl+2 exec xrandr --output eDP-1 --brightness 0.2
+bindsym $modCtrl+3 exec xrandr --output eDP-1 --brightness 0.3
+bindsym $modCtrl+4 exec xrandr --output eDP-1 --brightness 0.4
+bindsym $modCtrl+5 exec xrandr --output eDP-1 --brightness 0.5
+bindsym $modCtrl+6 exec xrandr --output eDP-1 --brightness 0.6
+bindsym $modCtrl+7 exec xrandr --output eDP-1 --brightness 0.7
+bindsym $modCtrl+8 exec xrandr --output eDP-1 --brightness 0.8
+bindsym $modCtrl+9 exec xrandr --output eDP-1 --brightness 0.9
+bindsym $modCtrl+0 exec xrandr --output eDP-1 --brightness 1.0
 
 # volume
-bindsym $modCtrl+Right exec amixer -D default sset Master 5%+
-bindsym $modCtrl+Left exec amixer -D default sset Master 5%-
+bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
+bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
 
-# borders
+# borders & gaps
 hide_edge_borders both
+for_window [class="^.*"] border pixel 2
+gaps inner 10
+gaps outer 1
 
 # screen saver off
 exec_always xset s off &
@@ -210,3 +207,26 @@ bindsym $modCtrl+Shift+Print exec --no-startup-id maim $HOME/Pictures/ss"$(date 
 
 # startup
 exec_always i3-msg "workspace $work1; exec $terminal"
+
+# gaps
+    # more gaps
+bindsym $modCtrl+Shift+j gaps inner current plus 5; gaps outer current plus 1
+    # less gaps
+bindsym $modCtrl+Shift+k gaps inner current minus 5; gaps outer current minus 1
+    # gaps reset
+bindsym $modCtrl+Shift+r gaps inner current set 10; gaps outer current set 1
+    # remove gaps
+bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 0
+
+# floating windows
+floating_minimum_size 350 x 450
+floating_maximum_size -1 x -1
+
+# colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #00b300 #222222 #00b300 #2e9ef4   #006200
+client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff

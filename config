@@ -157,7 +157,16 @@ bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
 hide_edge_borders both
 for_window [class="^.*"] border pixel 2
 gaps inner 10
-gaps outer 1
+gaps outer 10
+# gaps
+    # more gaps
+bindsym $modCtrl+Shift+j gaps inner current plus 10; gaps outer current plus 10
+    # less gaps
+bindsym $modCtrl+Shift+k gaps inner current minus 10; gaps outer current minus 10
+    # gaps reset
+bindsym $modCtrl+Shift+r gaps inner current set 10; gaps outer current set 10
+    # remove gaps
+bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 1.1
 
 # screen saver off
 exec_always xset s off &
@@ -209,16 +218,6 @@ bindsym $modCtrl+Shift+Print exec --no-startup-id maim $HOME/Pictures/ss"$(date 
 
 # startup
 exec_always i3-msg "workspace $work1; exec $terminal"
-
-# gaps
-    # more gaps
-bindsym $modCtrl+Shift+j gaps inner current plus 5; gaps outer current plus 1
-    # less gaps
-bindsym $modCtrl+Shift+k gaps inner current minus 5; gaps outer current minus 1
-    # gaps reset
-bindsym $modCtrl+Shift+r gaps inner current set 10; gaps outer current set 1
-    # remove gaps
-bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 1.1
 
 # floating windows
 floating_minimum_size -1 x -1

@@ -7,7 +7,7 @@
 
 set $mod Mod1
 set $modCtrl Control
-set $terminal xterm
+set $terminal urxvt
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -228,5 +228,5 @@ client.focused          #00b300 #222222 #00b300 #2e9ef4   #006200
 client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #222222
 client.background       #ffffff

@@ -199,7 +199,7 @@ workspace $work10 output $monitor2
 
 # easy access
 bindsym $modCtrl+Shift+v exec $terminal -e vim
-bindsym $modCtrl+Shift+Delete exec $terminal -e "htop -t -s=PERCENT_CPU -d=10 -t"
+bindsym $modCtrl+Shift+Delete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d=10 -t"
 bindsym $modCtrl+Shift+c exec chromium
 
 # screen shot

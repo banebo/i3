@@ -224,7 +224,7 @@ floating_maximum_size -1 x -1
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #00b300 #222222 #00b300 #2e9ef4   #006200
+client.focused          #00b300 #222222 #00b300 #2e9ef4   #007200
 client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17

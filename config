@@ -219,7 +219,7 @@ bindsym $modCtrl+Shift+r gaps inner current set 10; gaps outer current set 1
 bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 1.1
 
 # floating windows
-floating_minimum_size 350 x 450
+floating_minimum_size -1 x -1
 floating_maximum_size -1 x -1
 
 # colors

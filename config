@@ -231,3 +231,15 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #222222
 client.background       #ffffff
+
+# #---Dropdown Windows---# #
+# General dropdown window traits. The order can matter.
+for_window [instance="dropdown_*"] floating enable
+for_window [instance="dropdown_*"] move scratchpad
+for_window [instance="dropdown_*"] sticky enable
+for_window [instance="dropdown_*"] scratchpad show
+for_window [instance="dropdown_tmuxdd"] resize set 625 450
+for_window [instance="dropdown_dropdowncalc"] resize set 800 300
+for_window [instance="dropdown_tmuxdd"] border pixel 3
+for_window [instance="dropdown_dropdowncalc"] border pixel 2
+for_window [instance="dropdown_*"] move position center

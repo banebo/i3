@@ -193,6 +193,7 @@ workspace_layout tabbed
 set $monitor1 "eDP-1"
 set $monitor2 "HDMI-1"
 exec_always xrandr | grep "$monitor2 connected" && xrandr --output $monitor2 --auto --left-of $monitor1
+exec_always xrandr | grep "$monitor2 disconnected" && xrandr --output $monitor2 --off
     # monitor1
 workspace $work1 output $monitor1
 workspace $work2 output $monitor1

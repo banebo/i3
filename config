@@ -210,7 +210,7 @@ workspace $work10 output $monitor2
 # easy access
 bindsym $modCtrl+Shift+v exec $terminal -e vim
 bindsym $modCtrl+Shift+Delete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d=10 -t"
-bindsym $modCtrl+r exec $terminal -e "ranger"
+bindsym $modCtrl+f exec $terminal -e "ranger"
 bindsym $modCtrl+b exec "chromium --incognito"
 bindsym $modCtrl+Shift+n exec "nm-connection-editor"
 

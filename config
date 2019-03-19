@@ -179,12 +179,12 @@ exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 exec_always "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1"
 
 # i3lock
-bindsym $modCtrl+i exec "i3lock -ef -i $HOME/Pictures/lock_screen.png -c 000000"
+bindsym $modCtrl+i exec "lockMe"
 
 # suspending, poweroff & update
 bindsym $modCtrl+Shift+p exec "i3-nagbar -t warning -m '[?] Are you sure you want to POWEROFF?' -b 'YES' 'poweroff'"
 bindsym $modCtrl+Shift+u exec "i3-nagbar -t warning -m '[?] Are you sure you want to UPDATE?' -b 'YES' 'update'"
-bindsym $modCtrl+Shift+s exec "i3lock -ef -i $HOME/Pictures/lock_screen.png -c 000000 && systemctl suspend -i"
+bindsym $modCtrl+Shift+s exec "lockMe --suspend"
 
 # deffault window layout
 workspace_layout tabbed

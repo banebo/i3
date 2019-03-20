@@ -179,12 +179,12 @@ exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 exec_always "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1"
 
 # i3lock
-bindsym $modCtrl+i exec "lockMe"
+bindsym $modCtrl+i exec "mpd --kill; lockMe"
 
 # suspending, poweroff & update
 bindsym $modCtrl+Shift+p exec "i3-nagbar -t warning -m '[?] Are you sure you want to POWEROFF?' -b 'YES' 'poweroff'"
 bindsym $modCtrl+Shift+u exec "i3-nagbar -t warning -m '[?] Are you sure you want to UPDATE?' -b 'YES' 'update'"
-bindsym $modCtrl+Shift+s exec "lockMe --suspend"
+bindsym $modCtrl+Shift+s exec "mpd --kill; lockMe --suspend"
 
 # deffault window layout
 workspace_layout tabbed
@@ -213,12 +213,14 @@ bindsym $modCtrl+Shift+Delete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d
 bindsym $modCtrl+f exec $terminal -e "ranger"
 bindsym $modCtrl+b exec "chromium --incognito"
 bindsym $modCtrl+Shift+n exec "nm-connection-editor"
+bindsym $modCtrl+Shift+m exec $terminal -e ncmpcpp
 
 # screen shot
-bindsym $modCtrl+Shift+Print exec --no-startup-id maim $HOME/Pictures/ss"$(date '+%d-%m-%Y_%H-%M-%S').png"
+bindsym $modCtrl+Shift+Print exec --no-startup-id screen_shot
 
 # startup
-exec_always i3-msg "workspace $work1; exec $terminal"
+exec --no-startup-id i3-msg "workspace $work1; exec $terminal"
+exec --no-startup-id mpd
 
 # floating windows
 floating_minimum_size -1 x -1
@@ -246,4 +248,4 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 # unclutter
-exec_always unclutter --timeout 2
+exec --no-startup-id unclutter --timeout 2

@@ -181,8 +181,7 @@ exec_always "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enab
 # i3lock
 bindsym $modCtrl+i exec "mpc pause; lockMe"
 
-# suspending, poweroff & update
-bindsym $modCtrl+Shift+p exec "i3-nagbar -t warning -m '[?] Are you sure you want to POWEROFF?' -b 'YES' 'poweroff'"
+# suspending & update
 bindsym $modCtrl+Shift+u exec "i3-nagbar -t warning -m '[?] Are you sure you want to UPDATE?' -b 'YES' 'update'"
 bindsym $modCtrl+Shift+s exec "mpc puase; lockMe --suspend"
 
@@ -249,3 +248,9 @@ for_window [instance="dropdown_*"] move position center
 
 # unclutter
 exec --no-startup-id unclutter --timeout 2
+
+# music keys
+# ctrl+shift+m is music (ncpcpp)
+bindsym $modCtrl+Shift+p exec "mpc toggle"
+bindsym $modCtrl+Shift+Right exec "mpc next"
+bindsym $modCtrl+Shift+Left exec "mpc prev"

@@ -22,8 +22,9 @@ bindsym $mod+Return exec $terminal
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec rofi -show window
 
 # change focus
 bindsym $mod+h focus left

@@ -139,20 +139,20 @@ bar {
 # ADDITIONAL COMMAND
 
 #brightness
-bindsym $modCtrl+1 exec xrandr --output eDP-1 --brightness 0.1
-bindsym $modCtrl+2 exec xrandr --output eDP-1 --brightness 0.2
-bindsym $modCtrl+3 exec xrandr --output eDP-1 --brightness 0.3
-bindsym $modCtrl+4 exec xrandr --output eDP-1 --brightness 0.4
-bindsym $modCtrl+5 exec xrandr --output eDP-1 --brightness 0.5
-bindsym $modCtrl+6 exec xrandr --output eDP-1 --brightness 0.6
-bindsym $modCtrl+7 exec xrandr --output eDP-1 --brightness 0.7
-bindsym $modCtrl+8 exec xrandr --output eDP-1 --brightness 0.8
-bindsym $modCtrl+9 exec xrandr --output eDP-1 --brightness 0.9
-bindsym $modCtrl+0 exec xrandr --output eDP-1 --brightness 1.0
+bindsym $modCtrl+1 exec brightness "0.1"
+bindsym $modCtrl+2 exec brightness "0.2"
+bindsym $modCtrl+3 exec brightness "0.3"
+bindsym $modCtrl+4 exec brighntess "0.4"
+bindsym $modCtrl+5 exec brightness "0.5"
+bindsym $modCtrl+6 exec brightness "0.6"
+bindsym $modCtrl+7 exec brightness "0.7"
+bindsym $modCtrl+8 exec brightness "0.8"
+bindsym $modCtrl+9 exec brighntess "0.9"
+bindsym $modCtrl+0 exec brightness "1.0"
 
 # volume
-bindsym $modCtrl+Right exec amixer -D pulse sset Master 5%+
-bindsym $modCtrl+Left exec amixer -D pulse sset Master 5%-
+bindsym $modCtrl+Up exec amixer -D pulse sset Master 5%+
+bindsym $modCtrl+Down exec amixer -D pulse sset Master 5%-
 
 # borders & gaps
 hide_edge_borders both
@@ -161,13 +161,13 @@ gaps inner 10
 gaps outer 10
 # gaps
     # more gaps
-bindsym $modCtrl+Shift+j gaps inner current plus 10; gaps outer current plus 10
+bindsym $modCtrl+j gaps inner current plus 10; gaps outer current plus 10
     # less gaps
-bindsym $modCtrl+Shift+k gaps inner current minus 10; gaps outer current minus 10
+bindsym $modCtrl+k gaps inner current minus 10; gaps outer current minus 10
     # gaps reset
-bindsym $modCtrl+Shift+r gaps inner current set 10; gaps outer current set 10
+bindsym $modCtrl+g gaps inner current set 10; gaps outer current set 10
     # remove gaps
-bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 1.1
+bindsym $modCtrl+f gaps inner current set 0; gaps outer current set 1.1
 
 # screen saver off
 exec_always xset s off &
@@ -208,19 +208,18 @@ workspace $work9 output $monitor2
 workspace $work10 output $monitor2
 
 # easy access
-bindsym $modCtrl+Shift+v exec $terminal -e vim
+bindsym $modCtrl+v exec $terminal -e vim
 bindsym $modCtrl+Shift+Delete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d=10 -t"
-bindsym $modCtrl+f exec $terminal -e "ranger"
+bindsym $modCtrl+r exec $terminal -e "ranger"
 bindsym $modCtrl+b exec "chromium --incognito"
-bindsym $modCtrl+Shift+n exec "nm-connection-editor"
-bindsym $modCtrl+Shift+m exec $terminal -e ncmpcpp
 
 # screen shot
 bindsym $modCtrl+Shift+Print exec --no-startup-id screen_shot
 
 # startup
 exec --no-startup-id i3-msg "workspace $work1; exec $terminal"
-exec_always --no-startup-id mpd
+exec --no-startup-id mpd
+exec --no-startup-id unclutter --timeout 2
 
 # floating windows
 floating_minimum_size -1 x -1
@@ -235,8 +234,7 @@ client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #222222
 client.background       #ffffff
 
-# #---Dropdown Windows---# #
-# General dropdown window traits. The order can matter.
+#---Dropdown Windows---#
 for_window [instance="dropdown_*"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
@@ -247,11 +245,8 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
-# unclutter
-exec --no-startup-id unclutter --timeout 2
-
 # music keys
-# ctrl+shift+m is music (ncpcpp)
-bindsym $modCtrl+Shift+p exec "mpc toggle"
-bindsym $modCtrl+Shift+Right exec "mpc next"
-bindsym $modCtrl+Shift+Left exec "mpc prev"
+bindsym $modCtrl+m exec $terminal -e ncmpcpp
+bindsym $modCtrl+p exec "mpc toggle"
+bindsym $modCtrl+Right exec "mpc next"
+bindsym $modCtrl+Left exec "mpc prev"

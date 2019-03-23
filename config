@@ -47,10 +47,10 @@ bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space focus mode_toggle
 
 # workspace variable def.
 set $work1 "1 "
@@ -119,7 +119,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $modCtrl+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -151,8 +151,8 @@ bindsym $modCtrl+9 exec brighntess "0.9"
 bindsym $modCtrl+0 exec brightness "1.0"
 
 # volume
-bindsym $modCtrl+Up exec amixer -D pulse sset Master 5%+
-bindsym $modCtrl+Down exec amixer -D pulse sset Master 5%-
+bindsym $mod+Right exec amixer -D pulse sset Master 5%+
+bindsym $mod+Left exec amixer -D pulse sset Master 5%-
 
 # borders & gaps
 hide_edge_borders both
@@ -169,21 +169,12 @@ bindsym $modCtrl+g gaps inner current set 10; gaps outer current set 10
     # remove gaps
 bindsym $modCtrl+f gaps inner current set 0; gaps outer current set 1.1
 
-# screen saver off
-exec_always xset s off &
-exec_always xset -dpms
-
-# wallpaper
-exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
-
-# touchpad touch to click
-exec_always "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1"
-
 # i3lock
 bindsym $modCtrl+i exec "mpc pause; lockMe"
 
 # suspending & update
-bindsym $modCtrl+Shift+u exec "i3-nagbar -t warning -m '[?] Are you sure you want to UPDATE?' -b 'YES' 'update'"
+bindsym $modCtrl+Shift+u exec "i3-nagbar -t warning -m '[?] UPDATE?' -b 'YES' 'update'"
+bindsym $modCtrl+Shift+r exec "i3-nagbar -t warning -m '[?] REBOOT?' -b 'YES' 'reboot'"
 bindsym $modCtrl+Shift+s exec "mpc puase; lockMe --suspend"
 
 # deffault window layout
@@ -208,18 +199,22 @@ workspace $work9 output $monitor2
 workspace $work10 output $monitor2
 
 # easy access
-bindsym $modCtrl+v exec $terminal -e vim
-bindsym $modCtrl+Shift+Delete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d=10 -t"
-bindsym $modCtrl+r exec $terminal -e "ranger"
-bindsym $modCtrl+b exec "chromium --incognito"
+bindsym $mod+v exec $terminal -e vim
+bindsym $modDelete exec $terminal -e sh -c "htop -t -s=PERCENT_CPU -d=10 -t"
+bindsym $mod+r exec $terminal -e "ranger"
+bindsym $mod+b exec "chromium --incognito"
 
 # screen shot
-bindsym $modCtrl+Shift+Print exec --no-startup-id screen_shot
+bindsym Print exec --no-startup-id screen_shot
 
 # startup
 exec --no-startup-id i3-msg "workspace $work1; exec $terminal"
 exec --no-startup-id mpd
 exec --no-startup-id unclutter --timeout 2
+exec "xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Tapping Enabled' 1"
+exec xset s off &
+exec xset -dpms
+exec_always feh --bg-scale $HOME/Pictures/wallpaper.jpg
 
 # floating windows
 floating_minimum_size -1 x -1
@@ -246,7 +241,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 # music keys
-bindsym $modCtrl+m exec $terminal -e ncmpcpp
-bindsym $modCtrl+p exec "mpc toggle"
-bindsym $modCtrl+Right exec "mpc next"
-bindsym $modCtrl+Left exec "mpc prev"
+bindsym $mod+m exec $terminal -e ncmpcpp
+bindsym $mod+space exec "mpc toggle"
+bindsym $mod+n exec "mpc next"
+bindsym $mod+p exec "mpc prev"

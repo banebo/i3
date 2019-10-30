@@ -61,10 +61,10 @@ set $work1 "1 "
 set $work2 "2 "
 set $work3 "3 "
 set $work4 "4 "
-set $work5 "5"
-set $work6 "6"
-set $work7 "7"
-set $work8 "8"
+set $work5 "5 "
+set $work6 "6 "
+set $work7 "7 "
+set $work8 "8 "
 set $work9 "9   A"
 set $work10 "10   B"
 
@@ -93,12 +93,10 @@ bindsym $mod+Shift+9 move container to workspace $work9
 bindsym $mod+Shift+0 move container to workspace $work10
 
 # xprop to get class, second string
-assign [class="Chromium-browser"] $work2
-#assign [class="Chromium"] $work2
 assign [class="qBittorrent"] $work4
-assign [class="jetbrains-idea"] $work3
-#assign [class="Eclipse"] $work3
-assign [class="jetbrains-pycharm"] $work3
+assign [class="VirtualBox Manager"] $work6
+#assign [class=""] $work7
+#assign [class=""] $work8
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -130,11 +128,12 @@ bindsym $modCtrl+r mode "resize"
 bar {
 	colors {
 		background #00000
-	    separator #757575
+	        separator #757575
 		#                  border         background        text
-		focused_workspace  #00b300        #000000           #00b300
-		inactive_workspace #000000 	      #000000           #999999
-		urgent_workspace   #b51a17	      #000000		    #b51a17
+		#focused_workspace  #00b300       #000000           #00b300
+		focused_workspace  #e60000        #000000           #ff0000
+		inactive_workspace #000000 	  #000000           #999999
+		urgent_workspace   #b51a17	  #000000           #b51a17
 	}
 
         status_command i3status
@@ -159,10 +158,10 @@ bindsym $mod+Right exec amixer -D pulse sset Master 5%+
 bindsym $mod+Left exec amixer -D pulse sset Master 5%-
 
 # borders & gaps
-hide_edge_borders both
-for_window [class="^.*"] border pixel 2
-gaps inner 10
-gaps outer 10
+#hide_edge_borders both
+for_window [class="^.*"] border pixel 1
+#gaps inner 10
+#gaps outer 10
 # gaps
     # more gaps
 bindsym $modCtrl+Shift+j gaps inner current plus 10; gaps outer current plus 10
@@ -171,7 +170,7 @@ bindsym $modCtrl+Shift+k gaps inner current minus 10; gaps outer current minus 1
     # gaps reset
 bindsym $modCtrl+g gaps inner current set 10; gaps outer current set 10
     # remove gaps
-bindsym $modCtrl+f gaps inner current set 0; gaps outer current set 1.1
+bindsym $modCtrl+Shift+f gaps inner current set 0; gaps outer current set 1.1
 
 # i3lock
 bindsym $modCtrl+i exec "mpc pause; lockMe"
@@ -226,7 +225,7 @@ floating_maximum_size -1 x -1
 
 # colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #00b300 #222222 #00b300 #2e9ef4   #007200
+client.focused          #e60000 #222222 #e60000 #e60000   #b30000
 client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #b51a17 #222222 #b51a17 #900000   #b51a17

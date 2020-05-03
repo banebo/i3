@@ -153,9 +153,13 @@ bindsym $modCtrl+8 exec brightness "0.8"
 bindsym $modCtrl+9 exec brighntess "0.9"
 bindsym $modCtrl+0 exec brightness "1.0"
 
-# volume
+# volume (amixer)
 bindsym $mod+Right exec amixer -D pulse sset Master 5%+
 bindsym $mod+Left exec amixer -D pulse sset Master 5%-
+
+# volume (pulseaudio)
+#bindsym $mod+Right exec "current=$(pacmd dump-volumes | awk 'NR==1{print $8}' | sed 's/\%//'); [ $current -lt 100 ] && pactl set-sink-volume 0 +5%" # not to go over 100% volume
+#bindsym $mod+Left exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # borders & gaps
 #hide_edge_borders both
